@@ -10,4 +10,4 @@ def helloWorld(request):
              <p>{post.content}</p>
         </div>  
     '''
-    return HttpResponse("<h1>Hello World!</h1>")
+    return HttpResponse(html)
