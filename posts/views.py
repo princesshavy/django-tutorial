@@ -6,8 +6,8 @@ def helloWorld(request):
     for post in posts :
      html += f'''
         <div>
-             <h1>{post.id} - {post.title}</h1>
-             <p>{post.content}</p>
+             <h1>{post.id} - {post['title']}</h1>
+             <p>{post['content']}</p>
         </div>  
     '''
     return HttpResponse(html)
