@@ -1,6 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+posts = [
+    {
+        "id":0,
+        "title":'Python is interpreted,high level,general purpose program',
+    },
+    {
+        "id":1,
+        "title":'Let\'s explore Javascript',
+        "content":'Javascript is interpreted , high level,general purpose program'
+    }
+    ]
 import posts
 # Create your views here.
 def helloWorld(request):
@@ -16,6 +27,12 @@ def helloWorld(request):
     return HttpResponse(html)
 
 def post(request,id):
-    print(type(id))
-    return HttpResponse(f"{id}")
+    for post in posts:
+        if post['id'] == id :
+            post_dict = post 
+            break
+    html = f''' 
+    <h1>{post_dict['title']}</h1>
+    <p>{post_dict['content']}</p>'''
+    return HttpResponse(html)
 
