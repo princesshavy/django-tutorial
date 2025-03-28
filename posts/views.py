@@ -16,5 +16,6 @@ def helloWorld(request):
     return HttpResponse(html)
 
 def post(request,id):
-    return HttpResponse(id)
+    print(type(id))
+    return HttpResponse(f"{id}")
 
