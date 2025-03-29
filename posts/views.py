@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound,HttpResponseRedirect
 #import posts
 posts = [
     {
@@ -26,13 +26,20 @@ def helloWorld(request):
     return HttpResponse(html)
 
 def post(request,id):
+    valid_id = False
     for post in posts:
         if post['id'] == id:
             post_dict = post 
+            valid_id = True
             break
-    html = f''' 
-           <h1>{post_dict['title']}</h1>
-           <p>{post_dict['content']}</p>
-        '''
-    return HttpResponse(html)
+        if valid_id:
+            html = f''' 
+                <h1>{post_dict['title']}</h1>
+                <p>{post_dict['content']}</p>
+                '''
+            return HttpResponse(html)
+        else:
+            return HttpResponseNotFound("Post Not Available😎😥")
 
+def google(request):
+    return HttpResponseRedirect('https://www.google.com')
