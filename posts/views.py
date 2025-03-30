@@ -32,14 +32,14 @@ def post(request,id):
             post_dict = post 
             valid_id = True
             break
-        if valid_id:
-            html = f''' 
+    if valid_id:
+        html = f''' 
                 <h1>{post_dict['title']}</h1>
                 <p>{post_dict['content']}</p>
-                '''
-            return HttpResponse(html)
-        else:
+            '''
+        return HttpResponse(html)
+    else:
             return HttpResponseNotFound("Post Not Available😎😥")
 
-def google(request):
-    return HttpResponseRedirect('https://www.google.com')
+def google(request,id):
+     valid_id = False
