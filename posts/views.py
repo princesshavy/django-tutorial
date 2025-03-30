@@ -15,8 +15,8 @@ posts = [
     },
 ]
 # Create your views here.
-def home(request):
-    print(reverse('home'))
+def home(request,name):
+    print(reverse('home',args=['havy']))
     html = "" 
     for post in posts :
         html += f'''
