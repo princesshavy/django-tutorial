@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound,HttpResponseRedirect
+from django.urls import reverse
 #import posts
 posts = [
     {
@@ -14,12 +15,13 @@ posts = [
     },
 ]
 # Create your views here.
-def helloWorld(request):
+def home(request):
+    print(reverse('home'))
     html = "" 
     for post in posts :
         html += f'''
-        <div>
-
+            <div>
+            <a href = "/post/{post['id']}/">
              <h1>{post['id']} - {post['title']}</h1>
              <p>{post['content']}</p>
         </div>'''
@@ -42,4 +44,5 @@ def post(request,id):
             return HttpResponseNotFound("Post Not Available😎😥")
 
 def google(request,id):
-     valid_id = False
+     return HttpResponseRedirect(f'/posts/{id}')
+ 

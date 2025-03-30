@@ -19,7 +19,7 @@ from django.urls import path,include
 from posts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post/helloworld/',views.helloWorld),
-    path('post/',include('posts.urls')),
+   # path('post/helloworld/',views.helloWorld),
+    path('posts/',include('posts.urls')),
     path("<int:id>/",views.google)
 ]
