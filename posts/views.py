@@ -15,8 +15,8 @@ posts = [
     },
 ]
 # Create your views here.
-def home(request,name):
-    print(reverse('home',args=['havy']))
+def home(request):
+
     html = "" 
     for post in posts :
         html += f'''
@@ -44,5 +44,6 @@ def post(request,id):
             return HttpResponseNotFound("Post Not Available😎😥")
 
 def google(request,id):
-     return HttpResponseRedirect(f'/posts/{id}')
+     url = reverse("post",args=[id])
+     return HttpResponseRedirect(url)
  
