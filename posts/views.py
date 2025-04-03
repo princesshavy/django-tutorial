@@ -16,7 +16,6 @@ posts = [
 ]
 # Create your views here.
 def home(request):
-
     html = "" 
     for post in posts :
         html += f'''
@@ -25,7 +24,8 @@ def home(request):
              <h1>{post['id']} - {post['title']}</h1>
              <p>{post['content']}</p>
         </div>'''
-    return HttpResponse(html)
+    name = "Jeff Bezos"
+    return render(request,'posts/home.html',{'posts': posts})
 
 def post(request,id):
     valid_id = False
