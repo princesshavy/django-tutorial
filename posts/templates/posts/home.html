@@ -6,18 +6,15 @@
      <title>Blog Home Page</title>
  </head>
  <body>
-    {% if posts%}
-
-
-        <h1>All posts available </h1>
+  
         {% for post in posts %}
-        <a  href = ""><h1>{{post.title}}</h1></a>
+         
+        <a  href = ""><h1>{{forloop.counter}} - {{post.title}}</h1></a>
         <p>{{post.content}}</p>
         {% endfor %}
-    {% else %}
-    <h1> No Posts Available</h1>
-{% endif%}
+   
 
+   
    
  </body>
  </html>   

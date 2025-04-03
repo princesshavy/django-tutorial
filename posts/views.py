@@ -14,6 +14,7 @@ posts = [
         "content":'Javascript is interpreted , high level,general purpose program'
     },
 ]
+
 # Create your views here.
 def home(request):
     html = "" 
@@ -25,7 +26,7 @@ def home(request):
              <p>{post['content']}</p>
         </div>'''
     name = "Jeff Bezos"
-    return render(request,'posts/home.html',{})
+    return render(request,'posts/home.html',{'posts':posts})
 
 def post(request,id):
     valid_id = False
