@@ -36,15 +36,12 @@ def post(request,id):
             valid_id = True
             break
     if valid_id:
-        html = f''' 
-                <h1>{post_dict['title']}</h1>
-                <p>{post_dict['content']}</p>
-            '''
-        return HttpResponse(html)
+       
+        return render(request,"posts/post.html",{'post_dict':post_dict})
     else:
             return HttpResponseNotFound("Post Not Available😎😥")
 
 def google(request,id):
      url = reverse("post",args=[id])
      return HttpResponseRedirect(url)
- 
+

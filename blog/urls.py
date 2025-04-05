@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
    # path('post/helloworld/',views.helloWorld),
     path('posts/',include('posts.urls')),
-    path("<int:id>/",views.google)
+    path("<int:id>/",views.google),
+   
 ]
