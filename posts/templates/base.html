@@ -5,11 +5,11 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>{% block title %}{% endblock title%}</title>
-     
+
      {% block css%}
-     {% load static %} 
+     {% load static %}
      {% endblock css %}
-     <link rel="stylesheet"  href="{% static 'style.css' %}">
+     <link rel="stylesheet"  href="{% static 'posts/style.css' %}">
  </head>
  <body>
         <nav>
@@ -17,11 +17,10 @@
         </nav>
 
         {% block body %}
-            
+
         {% endblock body %}
          <footer>
             Footer
-    </footer>  
-</body> 
+    </footer>
+</body>
 </html>
- 
