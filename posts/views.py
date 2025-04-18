@@ -26,7 +26,8 @@ def home(request):
              <p>{post['content']}</p>
         </div>'''
     name = "Jeff Bezos"
-    return render(request,'posts/home.html',{'posts':posts,'username' :'taranjot'} )
+    return render(request,'posts/index.html',
+    {'posts':posts,'username' :'taranjot'} )
 
 def post(request,id):
     valid_id = False
